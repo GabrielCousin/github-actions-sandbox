@@ -1,6 +1,9 @@
 on:
   push:
 name: push
+concurrency:
+  group: ${{github.ref}}
+  cancel-in-progress: true
 jobs:
   Test:
     runs-on: ubuntu-latest
